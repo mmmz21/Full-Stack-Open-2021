@@ -49,6 +49,8 @@ Any JS code within curly braces is evaluted and the result of this evaluation is
 
 COMPONENT NAMES MUST BE CAPITALIZED
 
+Do Not Define Components Within Components
+
 And the content of a component needs to contain ONE root element (such as div or an empty fragment <> </>)
 or an array of components: 
 ```JSX
@@ -111,19 +113,6 @@ const Hello = (props) => {
       <p>
         Hello {props.name}, you are {props.age} years old
       </p>
-    </div>
-  )
-}
-
-const App = () => {
-  const name = 'Peter'
-  const age = 10
-
-  return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} />
-      <Hello name={name} age={age} />
     </div>
   )
 }
@@ -639,4 +628,3 @@ const Button = (props) => (
 <Button handleClick={() => setToValue(1000)} text="thousand" />
 ```
 
-### Do Not Define Components Within Components
