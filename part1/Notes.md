@@ -625,6 +625,6 @@ const Button = (props) => (
   </button>
 )
 ...
-<Button handleClick={() => setToValue(1000)} text="thousand" />
+<Button handleClick={() => setToValue(1000)} text="thousand"} />
 ```
 
