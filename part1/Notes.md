@@ -315,7 +315,7 @@ const Hello = (props) => {
   const name = props.name
   const age = props.age
   // or 
-  const {name, age ] = props
+  const {name, age} = props
 ```
 or even: 
 ```JSX
