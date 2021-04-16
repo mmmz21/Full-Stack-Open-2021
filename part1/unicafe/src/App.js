@@ -11,6 +11,19 @@ function App() {
   const handleNeutralClick = () => setNeutral(neutral + 1)
   const handleBadClick = () => setBad(bad + 1)
 
+  const Statistics = ({ good, neutral, bad }) => {
+    return (
+      <div>
+        <p> good {good} </p>
+        <p> neutral {neutral} </p>
+        <p> bad {bad} </p>
+        <p> all {good + neutral + bad} </p>
+        <p> average {(good - bad) / (good + neutral + bad)} </p>
+        <p> positive {good / (good + neutral + bad)}%</p>
+      </div>
+    )
+  }
+
   return (
     <div>
       <h1>give feedback</h1>
@@ -19,12 +32,7 @@ function App() {
       <button onClick={handleBadClick}> bad </button>
 
       <h1>statistics </h1>
-      <p> good {good} </p>
-      <p> neutral {neutral} </p>
-      <p> bad {bad} </p>
-      <p> all {good + neutral + bad} </p>
-      <p> average {(good - bad) / (good + neutral + bad)} </p>
-      <p> positive {good / (good + neutral + bad)} %</p>
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
   );
 }
