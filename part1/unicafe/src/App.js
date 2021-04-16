@@ -12,6 +12,13 @@ function App() {
   const handleBadClick = () => setBad(bad + 1)
 
   const Statistics = ({ good, neutral, bad }) => {
+    if (good + neutral + bad == 0) {
+      return (
+        <div>
+          <p> No feedback given </p>
+        </div>
+      )
+    }
     return (
       <div>
         <p> good {good} </p>
