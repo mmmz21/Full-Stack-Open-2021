@@ -7,10 +7,25 @@ function App() {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-  const handleGoodClick = () => setGood(good + 1)
-  const handleNeutralClick = () => setNeutral(neutral + 1)
-  const handleBadClick = () => setBad(bad + 1)
+  const goodClick = () => setGood(good + 1)
+  const neutralClick = () => setNeutral(neutral + 1)
+  const badClick = () => setBad(bad + 1)
 
+  const Button = ({ text, handleClick }) => {
+    return (
+      <div>
+        <button onClick={handleClick}> {text} </button>
+      </div>
+    )
+  }
+
+  const Statistic = ({ text, value }) => {
+    return (
+      <div>
+        <p> {text} {value} </p>
+      </div>
+    )
+  }
   const Statistics = ({ good, neutral, bad }) => {
     if (good + neutral + bad == 0) {
       return (
@@ -21,12 +36,12 @@ function App() {
     }
     return (
       <div>
-        <p> good {good} </p>
-        <p> neutral {neutral} </p>
-        <p> bad {bad} </p>
-        <p> all {good + neutral + bad} </p>
-        <p> average {(good - bad) / (good + neutral + bad)} </p>
-        <p> positive {good / (good + neutral + bad)}%</p>
+        <Statistic text={"good"} value={good} />
+        <Statistic text={"neutral"} value={neutral} />
+        <Statistic text={"bad"} value={bad} />
+        <Statistic text={"all"} value={good + neutral + bad} />
+        <Statistic text={"average"} value={(good - bad) / (good + neutral + bad)} />
+        <Statistic text={"positive"} value={good / (good + neutral + bad)} />
       </div>
     )
   }
@@ -34,9 +49,9 @@ function App() {
   return (
     <div>
       <h1>give feedback</h1>
-      <button onClick={handleGoodClick}> good </button>
-      <button onClick={handleNeutralClick}> neutral</button>
-      <button onClick={handleBadClick}> bad </button>
+      <Button text={"good"} handleClick={goodClick} />
+      <Button text={"neutral"} handleClick={neutralClick} />
+      <Button text={"bad"} handleClick={badClick} />
 
       <h1>statistics </h1>
       <Statistics good={good} neutral={neutral} bad={bad} />
